@@ -34,6 +34,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
+                exclude: /node_modules/,
                 query: {
                     presets: ['es2015']
                 }
@@ -41,6 +42,18 @@ module.exports = {
             {
                 test: /\.html$/,
                 loader: 'html-loader'
+            },
+            {
+                test: /.(png|jpg|gif|svg)$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 8192
+                } 
+            },
+            // 加载字体
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                loader: 'url-loader'
             }
         ]
     },
