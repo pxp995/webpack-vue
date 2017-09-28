@@ -43,5 +43,13 @@ module.exports = {
                 loader: 'html-loader'
             }
         ]
+    },
+    // 配置省略文件扩展名
+    resolve: {
+        extensions: ['.js', '.vue', '.css'],
+        // 配置文件别名
+        alias: {
+            vue: 'vue/dist/vue.min.js'
+        }
     }
 };

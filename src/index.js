@@ -1,3 +1,3 @@
-import Vue from '../node_modules/vue/dist/vue.min.js'
-import App from './App.vue'
+import Vue from 'vue'
+import App from './App'
 var abc = new Vue(App)

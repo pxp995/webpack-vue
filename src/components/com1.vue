@@ -1,18 +1,15 @@
 <template>
-  <div id="app">
+  <div>
     <div>{{msg}}</div>
-    <com1></com1>
   </div>
 </template>
 
 <script>
-import com1 from './components/com1'
 export default {
-  el: '#app',
-  components: { com1 },
+  name:'com1',
   data() {
     return {
-      msg: "hello vue from webpack"
+      msg: "我是来自components文件夹的组件"
     }
   }
 }
