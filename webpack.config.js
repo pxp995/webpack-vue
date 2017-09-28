@@ -15,10 +15,11 @@ module.exports = {
         port: 9090
     },
     plugins: [
-        // new htmlWebpackPlugin({
-        //     title:'vue+webpack'
-        // }),
-        // new cleanWebpackPlugin(['dist'])
+        // 配置生成的html模板
+        new htmlWebpackPlugin({
+            template: './index.html'
+        }),
+        new cleanWebpackPlugin(['dist'])
     ],
     output: {
         filename: '[name].bundle.js',
@@ -36,6 +37,10 @@ module.exports = {
                 query: {
                     presets: ['es2015']
                 }
+            },
+            {
+                test: /\.html$/,
+                loader: 'html-loader'
             }
         ]
     }
