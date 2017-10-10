@@ -6,13 +6,13 @@
 
 <script>
 export default {
-  name:'com1',
-  data() {
+  name: 'com1',
+  data () {
     return {
-      msg: "我是来自components文件夹的组件啊"
-    }
+      msg: '我是来自components文件夹的组件啊'
+    };
   }
-}
+};
 </script>
 
 <style>

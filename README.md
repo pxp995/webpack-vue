@@ -11,8 +11,9 @@
 6. 配置各种运行环境：开发、生产等
 7. 语法检查
 8. 资源缓存
+9. 性能优化
 
-#### 使用方法（默认已安装好node）
+#### 使用方法（默认已安装好node npm）
 1. clone项目，终端执行npm install安装依赖
 2. npm run start运行项目
 3. vue相关开发见[vue官网](https://cn.vuejs.org/v2/guide/index.html)

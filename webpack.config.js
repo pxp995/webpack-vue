@@ -12,7 +12,12 @@ module.exports = {
     devServer: {
         contentBase: './dist',
         compress: true,
-        port: 9090
+        port: 9090,
+        // 配置错误输出在页面上
+        overlay: {
+            errors: true,
+            warnings: true
+        }
     },
     plugins: [
         // 配置生成的html模板
@@ -27,6 +32,15 @@ module.exports = {
     },
     module: {
         rules:[
+            {
+                test: /\.(vue|js)$/,
+                loader: 'eslint-loader',
+                enforce: 'pre',
+                options: {
+                  formatter: require('eslint-friendly-formatter'),
+                  emitWarning: true
+                }
+            },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader'

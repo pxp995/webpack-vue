@@ -1,3 +1,4 @@
-import Vue from 'vue'
-import App from './App'
-var abc = new Vue(App)
+import Vue from 'vue';
+import App from './App';
+const vue = new Vue(App);
+Vue.use(vue);
