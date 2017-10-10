@@ -3,6 +3,7 @@ const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 // 清除／.dist文件夹
 const cleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require('webpack');
 module.exports = {
     entry: {
         app: './src/index.js'
@@ -24,7 +25,20 @@ module.exports = {
         new htmlWebpackPlugin({
             template: './index.html'
         }),
-        new cleanWebpackPlugin(['dist'])
+        new cleanWebpackPlugin(['dist']),
+        // 将引用的依赖打包成一个文件
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            minChunks: function (module, count) {
+                return (
+                    module.resource &&
+                    /\.js$/.test(module.resource) &&
+                    module.resource.indexOf(
+                    path.join(__dirname, './node_modules')
+                    ) === 0
+                )
+            }
+        })
     ],
     output: {
         filename: '[name].bundle.js',
@@ -37,12 +51,12 @@ module.exports = {
                 loader: 'eslint-loader',
                 enforce: 'pre',
                 options: {
-                  formatter: require('eslint-friendly-formatter'),
-                  emitWarning: true
+                  formatter: require('eslint-friendly-formatter')
                 }
             },
             {
                 test: /\.vue$/,
+                exclude: /node_modules/,
                 loader: 'vue-loader'
             },
             {
