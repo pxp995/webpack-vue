@@ -2,7 +2,7 @@
   <div id="app">
     <div>{{msg}}</div>
     <img src="./assets/img/logo.png">
-    <button @click="clickMe">clickMe!!</button>
+    <button @click="clickMe">clickMe!</button>
     <com1></com1>
   </div>
 </template>
@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     clickMe () {
-      console.log('你点击了按钮');
+      console.log('你点击了按钮!');
     }
   }
 };

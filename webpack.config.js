@@ -5,20 +5,28 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 const cleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 module.exports = {
-    entry: ['./dev-client.js', './src/index.js'],
+    entry: {
+        app: ['./dev-client.js', './src/index.js']
+    },
+    output: {
+        filename: '[name].bundle.js',
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: ''
+    },
     // app: './src/index.js'
     devtool: 'inline-source-map',
     // 配置开发服务器，传递参数为1.服务器所在目录；2.进行压缩；3.监听端口号
-    devServer: {
-        contentBase: './dist',
-        compress: true,
-        port: 9090,
-        // 配置错误输出在页面上
-        overlay: {
-            errors: true,
-            warnings: true
-        }
-    },
+    // devServer: {
+    //     contentBase: './dist',
+    //     compress: true,
+    //     hot: true,
+    //     port: 9090,
+    //     // 配置错误输出在页面上
+    //     overlay: {
+    //         errors: true,
+    //         warnings: true
+    //     }
+    // },
     plugins: [
         // 配置生成的html模板
         new htmlWebpackPlugin({
@@ -41,11 +49,6 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin()
     ],
-    output: {
-        filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist'),
-        publicPath: '/'
-    },
     module: {
         rules:[
             {
