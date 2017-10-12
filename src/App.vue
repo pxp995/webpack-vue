@@ -10,7 +10,6 @@
 <script>
 import com1 from './components/com1';
 export default {
-  el: '#app',
   components: { com1 },
   data () {
     return {
@@ -19,7 +18,7 @@ export default {
   },
   methods: {
     clickMe () {
-      console.log('你点击了按钮!');
+      console.log('你点击了按钮!!');
     }
   }
 };
